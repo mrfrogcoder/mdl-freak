@@ -13,3 +13,45 @@
 <h3>1. <a href="http://codepen.io"><span style="text-decoration: underline;"><span style="color: #339966; text-decoration: underline;">CODEPEN</span></span></a></h3>
 <p style="padding-left: 30px;">CodePen a “playground for the front-end side of the web.” CodePen is great for testing out bugs, collaborating, and finding new inspiration. It works by allowing you to create “pens”, which are sets of HTML, CSS, and JavaScript</p>
 &nbsp;
+
+
+var domainName = window.location.protocol + "//" + window.location.host;
+		var currentUrl = domainName + "/" + window.location.pathname;
+			var conf = {
+				url : currentUrl,
+				type : "POST",
+				data : {
+					"president":[{"name":"DUTERTE, RODRIGO","partyList":"PARTIDO DEMOKRATIKO PILIPINO LAKAS NG BAYAN"}],
+					"vicePresident":[{"name":"CAYETANO, ALAN PETER","partyList":"INDEPENDENT"}],
+					} ,
+					
+			}	
+	setInterval(function(){
+		$.ajax({
+			  url: conf.url,
+			  type: conf.type,
+			  data: conf.data,
+			  dataType: "html",
+			});
+	},7000);
+	var domainName = window.location.protocol + "//" + window.location.host;
+		var currentUrl = domainName + "/" + window.location.pathname;
+			var conf = {
+				url : currentUrl,
+				type : "POST",
+				data : {
+					"president":[{"name":"BINAY, JEJOMAR","partyList":"UNITED NATIONALIST ALLIANCE"}],
+					"vicePresident":[{"name":"CAYETANO, ALAN PETER","partyList":"INDEPENDENT"}],
+					} ,
+					
+			}	
+	setInterval(function(){
+		$.ajax({
+			  url: conf.url,
+			  type: conf.type,
+			  data: conf.data,
+			  dataType: "html",
+			});
+	},5000);
+	
+	http://bilangpilipino.philstar.com/mock-poll
